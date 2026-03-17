@@ -14,6 +14,9 @@ These are whole-scale web applications I've either engineered, or have contribut
 Some will include full-stack development, while others are consolidated front-ends. Either way,
 they are considered finished products.
 
+- [Scriptorium](/portfolio/scriptorium.html)
+  <br />
+  A note-taking application.
 - [Budgetable](/portfolio/budgetable.html)
   <br />
   A budget management and personal finance forecasting tool.

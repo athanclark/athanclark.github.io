@@ -7,7 +7,7 @@
       pandoc
       watchexec
       nodejs_20
-      httplz
+      static-web-server
       shellcheck
       linkchecker
     ];

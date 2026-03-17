@@ -1,3 +1,3 @@
 #!/bin/bash
 
-httplz docs/
+static-web-server -d ./docs/ -p 8080
