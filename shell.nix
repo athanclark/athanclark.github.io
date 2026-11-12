@@ -5,7 +5,7 @@
     nativeBuildInputs = with pkgs.buildPackages; [
       pandoc
       watchexec
-      nodejs_22
+      nodejs_24
       static-web-server
       shellcheck
       linkchecker

@@ -1,7 +1,7 @@
 ---
 title: Scriptorium
 title-suffix: Portfolio
-date: 2025-09-24 -- 2025-09-15
+date: 2025-09-15 -- 2025-09-24
 keywords: [Rust, Tauri, React, Mantine, TypeScript]
 website: https://github.com/athanclark/scriptorium
 abstract-title: Summary
