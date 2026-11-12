@@ -1,22 +1,22 @@
 {
   "name": "athanclark.com",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
+  "description": "Source for athanclark.com, a static site built with pandoc and ltext",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "./build.sh",
+    "serve": "./serve.sh",
+    "watch": "./watch.sh",
+    "lint": "./lint.sh"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@picocss/pico": "^1.5.10"
+    "@picocss/pico": "^1.5.13"
   },
   "devDependencies": {
-    "clean-css": "^5.3.2",
-    "html-minifier": "^4.0.0",
-    "uglify-js": "^3.17.4"
-  }
+    "html-minifier-terser": "^7.2.0",
+    "sass": "^1.108.2",
+    "terser": "^5.51.2"
+  },
+  "private": true
 }

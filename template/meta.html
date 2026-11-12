@@ -1,14 +1,27 @@
-<title>
-    $if(title)$$title$ - $endif$$if(title-suffix)$$title-suffix$ - $endif$athanclark.com
-</title>
-$if(abstract)$
-<meta name="description" content="$abstract$" />
+<title>$if(title)$$pagetitle$ - $endif$$if(title-suffix)$$title-suffix$ - $endif$athanclark.com</title>
+$if(plaindesc)$
+<meta name="description" content="$plaindesc$" />
+<meta property="og:description" content="$plaindesc$" />
 $endif$
 $if(author)$
 <meta name="author" content="$author$" />
 $endif$
 $if(keywords)$
 <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+$endif$
+<meta property="og:site_name" content="athanclark.com" />
+<meta property="og:title" content="$if(title)$$pagetitle$$else$athanclark.com$endif$" />
+<meta property="og:type" content="$if(ogtype)$$ogtype$$else$website$endif$" />
+<meta property="og:image" content="https://athanclark.com/images/me.jpg" />
+<meta name="twitter:card" content="summary" />
+$if(canonical)$
+<meta property="og:url" content="$canonical$" />
+<link rel="canonical" href="$canonical$" />
+$endif$
+$if(date)$
+$if(ogtype)$
+<meta property="article:published_time" content="$date$" />
+$endif$
 $endif$
 $for(scripts)$
 <script type="module" src="$scripts$"></script>

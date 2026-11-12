@@ -1,4 +1,5 @@
 ---
+abstract: "A portfolio of products, command-line tools, and libraries developed by Athan Clark."
 title: Portfolio
 ---
 

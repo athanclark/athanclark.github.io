@@ -1,4 +1,5 @@
 ---
+abstract: "Blog posts by Athan Clark, mostly about the development of projects from the portfolio."
 title: Blog
 ---
 

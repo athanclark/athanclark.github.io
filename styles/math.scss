@@ -1,9 +1,10 @@
-.math {
-    font-family: 'Latin Modern', math, serif;
+math {
+    font-family: 'Latin Modern Math', 'STIX Two Math', math, serif;
 
-    &.display {
-        display: inline-block;
-        width: 100%;
-        text-align: center;
+    &[display="block"] {
+        display: block math;
+        margin: var(--spacing) 0;
+        overflow-x: auto;
+        overflow-y: hidden;
     }
 }

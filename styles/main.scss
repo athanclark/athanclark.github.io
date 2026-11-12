@@ -99,6 +99,111 @@ main {
     }
 }
 
+.skip-link {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+
+    &:focus {
+        position: fixed;
+        left: var(--spacing);
+        top: var(--spacing);
+        width: auto;
+        height: auto;
+        padding: calc(var(--spacing) / 2) var(--spacing);
+        background: var(--primary);
+        color: var(--primary-inverse);
+        border-radius: var(--border-radius);
+        z-index: 100;
+    }
+}
+
+header.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing);
+    padding: 0 0 calc(var(--block-spacing-vertical) / 2);
+
+    .site-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--h1-color);
+        text-decoration: none !important;
+    }
+
+    #theme-toggle {
+        width: auto;
+        margin: 0;
+        padding: calc(var(--form-element-spacing-vertical) / 2) var(--form-element-spacing-horizontal);
+        line-height: 0;
+    }
+}
+
+footer.site-footer {
+    color: var(--muted-color);
+}
+
+article {
+    .has-copy {
+        position: relative;
+
+        & > .copy-code {
+            position: absolute;
+            top: calc(var(--spacing) / 2);
+            right: calc(var(--spacing) / 2);
+            width: auto;
+            margin: 0;
+            padding: 0.15rem 0.5rem;
+            font-size: 0.75rem;
+            opacity: 0;
+            transition: opacity var(--transition);
+        }
+
+        &:hover > .copy-code,
+        & > .copy-code:focus {
+            opacity: 1;
+        }
+
+        @media (hover: none) {
+            & > .copy-code {
+                opacity: 1;
+            }
+        }
+    }
+
+    pre {
+        overflow-x: auto;
+    }
+
+    .heading-anchor {
+        margin-left: 0.4em;
+        color: var(--muted-color);
+        text-decoration: none !important;
+        opacity: 0;
+        transition: opacity var(--transition);
+    }
+
+    h2, h3, h4 {
+        scroll-margin-top: var(--spacing);
+
+        &:hover > .heading-anchor {
+            opacity: 1;
+        }
+    }
+
+    .heading-anchor:focus {
+        opacity: 1;
+    }
+
+    ul.post-list > li {
+        margin-bottom: var(--spacing);
+    }
+}
+
 img.personal {
     @media (min-width: 992px) {
         max-width: 12em;

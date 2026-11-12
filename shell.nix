@@ -1,12 +1,11 @@
 { pkgs ? import <nixpkgs> {} }:
   pkgs.mkShell {
-    # nativeBuildInputs is usually what you want -- tools you need to run
+    # ltext isn't in nixpkgs; install it separately (see README.md), e.g.
+    # `nix profile add github:ltext/ltext` or `cargo install ltext`.
     nativeBuildInputs = with pkgs.buildPackages; [
-      dart-sass
-      css-html-js-minify
       pandoc
       watchexec
-      nodejs_20
+      nodejs_22
       static-web-server
       shellcheck
       linkchecker
