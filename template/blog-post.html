@@ -1,5 +1,6 @@
+<p><a href="/blog.html">&larr; All posts</a></p>
 <h1>$title$</h1>
-<dl>
+<dl class="post-meta">
     <dt>
         Written by:
     </dt>
@@ -12,6 +13,14 @@
     <dd>
         <time datetime="$date$">$date$</time>
     </dd>
+$if(readingtime)$
+    <dt>
+        Reading time:
+    </dt>
+    <dd>
+        About $readingtime$ min
+    </dd>
+$endif$
     <dt>
         Keywords:
     </dt>
@@ -32,3 +41,5 @@ $toc$
 </div>
 <hr />
 $body$
+<hr />
+<p><a href="/blog.html">&larr; All posts</a> &middot; <a href="#content">Back to top &uarr;</a></p>

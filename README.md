@@ -1,61 +1,63 @@
 # athanclark.com
 
-A basic static-site generated website.
+A home-brewed static site generator: [pandoc](https://pandoc.org) turns Markdown into HTML
+fragments, and [λtext](https://ltext.github.io/) applies them to the page templates.
 
-## Prereq's
+## Prerequisites
 
-You'll need the following tools installed:
+- [ltext](https://github.com/ltext/ltext) 0.2 or newer (the Rust build), e.g. `cargo install ltext`,
+  `brew install ltext/tap/ltext`, `nix profile add github:ltext/ltext`, or a binary from its
+  [releases](https://github.com/ltext/ltext/releases/latest)
+- [pandoc](https://pandoc.org/installing.html) 3.x
+- [Node.js](https://nodejs.org) 20 or newer (Sass, minifiers): run `npm ci` once
 
-- [nix](https://nixos.org/download)
-- [ltext](https://ltext.github.io/)
+Optional, for linting and development: `shellcheck`, `linkchecker`, `watchexec`, and
+`static-web-server` (`serve.sh` falls back to Python's `http.server`).
 
-Nix provides all the other dependencies for the build process of this website, however, it may
-take a while for nix to compile and build all of the required dependencies. You can get them
-in advance by running `nix-shell`, but it may take quite some time (multiple hours)
-for everything to build.
-
-### CSS Libraries
-
-This page uses [pico.css](https://picocss.org) for its Sass library. To add it, you can enter
-a nix shell and tell NPM to fetch the dependency:
-
-```bash
-nix-shell
-npm i
-```
+`nix-shell` provides everything except ltext.
 
 ## Building
 
-To build the site manually, run the build script:
+```bash
+npm ci
+./build.sh        # or: npm run build
+```
+
+The site is written to `docs/`. Besides the pages it generates:
+
+- `feed.xml`, an Atom feed of the blog
+- `sitemap.xml` and `robots.txt`
+- `404.html`, served by GitHub Pages for missing pages
+- a "Latest Posts" list on the home page, and the post list on the blog page
+- content-hashed `main-<hash>.css` and `site-<hash>.js`
+
+## Writing
+
+- Top-level pages live in `pages/*.md`; add each one to `template/top-level-pages.md`
+  (or set `nonav: true` in its front matter, like `404.md`).
+- Blog posts live in `pages/blog/*.md`, portfolio projects in `pages/portfolio/*.md`.
+  A directory with the same name as the post (e.g. `pages/blog/intset/`) is copied alongside it.
+- Front matter: `title`, `abstract` (used for listings, the feed, and `<meta name="description">`),
+  `date` (`YYYY-MM-DD` for blog posts), `keywords`, `author`, and optional `scripts`.
+- Math (`$...$`, `$$...$$`) is rendered as MathML.
+
+## Serve & watch
 
 ```bash
-nix-shell --command "./build.sh"
+./serve.sh        # http://localhost:8080
+./watch.sh        # rebuild on changes
 ```
 
 ## Lint
 
-You can also validate the code - currently it just checks the best practices of the BASH scripts,
-and performs a link checker:
-
-> Note, this must be run while serving the website for the link checker to behaive correctly.
-> Currently it's hardcoded to `localhost:8000`.
+Checks the shell scripts with shellcheck, that `feed.xml` and `sitemap.xml` are well-formed,
+and that `docs/` has no broken internal links. Run it after building:
 
 ```bash
-nix-shell --command "./lint.sh"
+./lint.sh
 ```
 
-## Watch
+## Deployment
 
-Alternatively, you can use the watch script to run `build.sh` whenever source files change:
-
-```bash
-nix-shell --command "./watch.sh"
-```
-
-## Serve
-
-You can also serve the generated output locally:
-
-```bash
-nix-shell --command "./serve.sh"
-```
+`.github/workflows/static.yml` builds and lints on every push and pull request, and deploys
+`docs/` to GitHub Pages from `master`.

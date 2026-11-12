@@ -1,4 +1,5 @@
 ---
+abstract: "The personal website of Athan Clark, a software engineer: a portfolio of projects, a blog, and contact info."
 title: Home
 ---
 
