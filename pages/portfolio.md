@@ -15,6 +15,9 @@ These are whole-scale web applications I've either engineered, or have contribut
 Some will include full-stack development, while others are consolidated front-ends. Either way,
 they are considered finished products.
 
+- [OpenChronology](/portfolio/openchronology.html)
+  <br />
+  A timeline editor for exact dates at any scale, with sources on every event.
 - [Scriptorium](/portfolio/scriptorium.html)
   <br />
   A note-taking application.
